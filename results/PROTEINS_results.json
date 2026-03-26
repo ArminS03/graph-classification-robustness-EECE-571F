@@ -1,0 +1,109 @@
+{
+  "dataset": "PROTEINS",
+  "timestamp": "2026-03-25T10:14:50.832214",
+  "device": "cuda",
+  "base_config": {
+    "architecture": "GCN",
+    "hidden_channels": 64,
+    "num_layers": 3,
+    "dropout": 0.5,
+    "lr": 0.001,
+    "weight_decay": 0.0005,
+    "epochs": 200,
+    "patience": 20,
+    "p_e": 0.2,
+    "p_f": 0.2,
+    "p_n": 0.1,
+    "lambda_jsd": 12.0,
+    "use_edge_drop": false,
+    "use_feature_mask": false,
+    "use_node_drop": false
+  },
+  "experiments": {
+    "baseline": {
+      "fold_accuracies": [
+        0.7321,
+        0.7679,
+        0.8482,
+        0.7838,
+        0.7838,
+        0.8559,
+        0.7748,
+        0.7928,
+        0.7838,
+        0.7297
+      ],
+      "mean_accuracy": 0.7853,
+      "std_accuracy": 0.0392,
+      "augmentations": "none"
+    },
+    "edge_drop": {
+      "fold_accuracies": [
+        0.7321,
+        0.5982,
+        0.8125,
+        0.7658,
+        0.5946,
+        0.8559,
+        0.7477,
+        0.6757,
+        0.6577,
+        0.5946
+      ],
+      "mean_accuracy": 0.7035,
+      "std_accuracy": 0.0891,
+      "augmentations": "edge_drop(p=0.2)"
+    },
+    "feature_mask": {
+      "fold_accuracies": [
+        0.5982,
+        0.7768,
+        0.75,
+        0.7838,
+        0.7748,
+        0.5946,
+        0.5946,
+        0.5946,
+        0.7658,
+        0.5946
+      ],
+      "mean_accuracy": 0.6828,
+      "std_accuracy": 0.0878,
+      "augmentations": "feature_mask(p=0.2)"
+    },
+    "node_drop": {
+      "fold_accuracies": [
+        0.5982,
+        0.7589,
+        0.5982,
+        0.5946,
+        0.7568,
+        0.8288,
+        0.5946,
+        0.7838,
+        0.5946,
+        0.6847
+      ],
+      "mean_accuracy": 0.6793,
+      "std_accuracy": 0.0896,
+      "augmentations": "node_drop(p=0.1)"
+    },
+    "all_augmentations": {
+      "fold_accuracies": [
+        0.7232,
+        0.7411,
+        0.7679,
+        0.7658,
+        0.7297,
+        0.8198,
+        0.7838,
+        0.7838,
+        0.7387,
+        0.5946
+      ],
+      "mean_accuracy": 0.7448,
+      "std_accuracy": 0.0574,
+      "augmentations": "edge_drop(p=0.2), feature_mask(p=0.2), node_drop(p=0.1)"
+    }
+  }
+}
